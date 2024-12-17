@@ -1,233 +1,76 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>docsify</title>
-    <link rel="icon" href="_media/favicon.ico" />
-    <meta
-      name="keywords"
-      content="doc,docs,documentation,gitbook,creator,generator,github,jekyll,github-pages"
-    />
-    <meta name="description" content="A magical documentation generator." />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    />
 
-    <!-- Core Theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@5/themes/core.min.css">
+<head>
+  <meta charset="UTF-8">
+  <title>docsify-darklight-theme</title>
+  <link rel="icon" href="https://cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/icons/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="google-site-verification" content="ks-x63sFEQSGfvTu0s1qRu5u4Y120n1TROFn17CJNLo" />
+  <meta name="keywords" content="doc,docs,documentation,gitbook,creator,generator,github,jekyll,github-pages">
+  <meta name="description" content="For magical documentation generator with dark and light mode switch.">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link 
+    rel="stylesheet"
+    href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css"
+    title="docsify-darklight-theme"
+    type="text/css"
+  />
+  <style>
+    nav.app-nav li ul {
+      min-width: 100px;
+    }
+  </style>
+</head>
 
-    <!-- Theme Add-on(s) -->
-    <link
-      rel="stylesheet"
-      href="//cdn.jsdelivr.net/npm/docsify@5/dist/themes/addons/core-dark.min.css"
-      media="(prefers-color-scheme: dark)"
-      data-group="addon"
-      data-sheet="core-dark-auto"
-    />
-
-    <!-- Site styles -->
-    <style>
-      /* Plugin: Carbon Ads */
-      #carbonads > :last-child {
-        margin-block: calc((1em * var(--line-height)) / 2);
-      }
-
-      /* UI Kit */
-      .ui-kit-color {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-        font-size: var(--font-size-s);
-      }
-
-      .ui-kit-color figure {
-        flex-grow: 1;
-        margin: 0;
-        padding: 0;
-      }
-
-      .ui-kit-color figure div {
-        height: 4rem;
-        border-radius: var(--border-radius);
-      }
-
-      .ui-kit-color figcaption {
-        text-align: center;
-        padding: 0.5em 0;
-      }
-    </style>
-    <script>
-      // Set html "lang" attribute based on URL
-      (function () {
-        const lang = location.hash.match(/#\/(de-de|es|ru-ru|zh-cn)\//);
-
-        if (lang) {
-          document.documentElement.setAttribute('lang', lang[1]);
-        }
-      })();
-    </script>
-  </head>
-
-  <body class="loading sidebar-chevron-right sidebar-group-box">
-    <div id="app"></div>
-    <script src="//cdn.jsdelivr.net/npm/docsify-plugin-carbon@1"></script>
-    <script>
-      // Docsify configuration
-      window.$docsify = {
-        alias: {
-          '.*?/awesome':
-            'https://raw.githubusercontent.com/docsifyjs/awesome-docsify/master/README.md',
-          '.*?/changelog':
-            '/CHANGELOG.md',
-          '/.*/_navbar.md': '/_navbar.md',
-          '/es/(.*)':
-            'https://raw.githubusercontent.com/docsifyjs/docs-es/master/$1',
-          '/de-de/(.*)':
-            'https://raw.githubusercontent.com/docsifyjs/docs-de/master/$1',
-          '/ru-ru/(.*)':
-            'https://raw.githubusercontent.com/docsifyjs/docs-ru/master/$1',
-          '/zh-cn/(.*)':
-            'https://cdn.jsdelivr.net/gh/docsifyjs/docs-zh@master/$1',
-        },
-        auto2top: true,
-        coverpage: true,
-        executeScript: true,
-        // hideSidebar: true,
-        loadSidebar: true,
-        loadNavbar: true,
-        // mergeNavbar: true,
-        maxLevel: 4,
-        // repo: 'docsifyjs/docsify',
-        // routerMode: 'history',
-        subMaxLevel: 2,
-        name: 'docsify',
-        nameLink: {
-          '/es/': '#/es/',
-          '/de-de/': '#/de-de/',
-          '/ru-ru/': '#/ru-ru/',
-          '/zh-cn/': '#/zh-cn/',
-          '/': '#/',
-        },
-        search: {
-          // insertAfter: '.app-name',
-          // insertBefore: '.sidebar-nav',
-          noData: {
-            '/es/': '¡No hay resultados!',
-            '/de-de/': 'Keine Ergebnisse!',
-            '/ru-ru/': 'Никаких результатов!',
-            '/zh-cn/': '没有结果!',
-            '/': 'No results!',
-          },
-          paths: 'auto',
-          placeholder: {
-            '/es/': 'Buscar',
-            '/de-de/': 'Suche',
-            '/ru-ru/': 'Поиск',
-            '/zh-cn/': '搜索',
-            '/': 'Search',
-          },
-          pathNamespaces: ['/es', '/de-de', '/ru-ru', '/zh-cn'],
-        },
-        skipLink: {
-          '/es/': 'Saltar al contenido principal',
-          '/de-de/': 'Ga naar de hoofdinhoud',
-          '/ru-ru/': 'Перейти к основному содержанию',
-          '/zh-cn/': '跳到主要内容',
-        },
-        vueComponents: {
-          'button-counter': {
-            template: /* html */ `<button @click="count += 1">You clicked me {{ count }} times</button>`,
-            data() {
-              return {
-                count: 0,
-              };
-            },
-          },
-        },
-        vueGlobalOptions: {
-          data() {
-            return {
-              count: 0,
-              message: 'Hello, World!',
-              // Fake API response
-              images: [
-                { title: 'Image 1', url: 'https://picsum.photos/150?random=1' },
-                { title: 'Image 2', url: 'https://picsum.photos/150?random=2' },
-                { title: 'Image 3', url: 'https://picsum.photos/150?random=3' },
-              ],
-            };
-          },
-          computed: {
-            timeOfDay() {
-              const date = new Date();
-              const hours = date.getHours();
-
-              if (hours < 12) {
-                return 'morning';
-              } else if (hours < 18) {
-                return 'afternoon';
-              } else {
-                return 'evening';
-              }
-            },
-          },
-          methods: {
-            hello() {
-              alert(this.message);
-            },
-          },
-        },
-        vueMounts: {
-          '#counter': {
-            data() {
-              return {
-                count: 0,
-              };
-            },
-          },
+<body>
+  <div id="app">We are building somthing special for you ...</div>
+  <script>
+    window.$docsify = {
+search: 'auto',
+      search: [
+        '/',
+      ],
+name: 'docsify',
+    repo: 'docsifyjs/docsify',
+    maxLevel: 3,
+    subMaxLevel: 3,
+      
+  loadSidebar: true,
+  autoHeader: true,
+  nativeEmoji: true,
+  notFoundPage: 'my404.md',
+  search: {
+          depth: 3,
+          noData: 'No results!',
+          placeholder: 'Search...'
         },
         plugins: [
-          DocsifyCarbon.create('CEBI6KQE', 'docsifyjsorg'),
-          // Plugin: Footer
-          function (hook, vm) {
-            hook.beforeEach(html => {
-              if (/githubusercontent\.com/.test(vm.route.file)) {
-                url = vm.route.file
-                  .replace('raw.githubusercontent.com', 'github.com')
-                  .replace(/\/master/, '/blob/master');
-              } else if (/jsdelivr\.net/.test(vm.route.file)) {
-                url = vm.route.file
-                  .replace('cdn.jsdelivr.net/gh', 'github.com')
-                  .replace('@master', '/blob/master');
-              } else {
-                url =
-                  'https://github.com/docsifyjs/docsify/blob/develop/docs/' +
-                  vm.route.file;
-              }
+        function(hook) {
+          var footer = [
+            '<footer style="text-align: center;margin-top: 50px;">',
+            '<span> Made with <svg xmlns="http://www.w3.org/2000/svg" width="24" height="15" viewBox="0 0 24 24" fill="red" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> by <a href="https://www.linkedin.com/in/boopathikumar/" target="_blank">@boopathikumar</a>  &copy; 2020 </span>',
+            '</footer>'
+          ].join('');
 
-              const footerHTML = [
-                '<hr>',
-                '<div style="display: flex; align-items: center; justify-content: space-between;">',
-                '  <span>Powered by <a href="/">Docsify.js</a></span>',
-                `  <a href="${url}" style="display: inline-flex; align-items: center; gap: 0.25em;">:memo: Edit Page</a>`,
-                '</div>',
-              ].join('\n');
+          hook.afterEach(function(html) {
+            return html + footer;
+          });
+        }
+      ],
+      formatUpdated: '{MM}/{DD} {HH}:{mm}',
+};
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-markdown.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-nginx.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script 
+    src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js"
+    type="text/javascript">
+  </script>
+</body>
 
-              return html + footerHTML;
-            });
-          },
-        ],
-      };
-    </script>
-    <script src="//cdn.jsdelivr.net/npm/docsify@5/dist/docsify.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/docsify@5/dist/plugins/search.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/docsify@5/dist/plugins/front-matter.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/docsify@5/dist/plugins/gtag.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/docsify@5/dist/plugins/matomo.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-nginx.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
-  </body>
 </html>
