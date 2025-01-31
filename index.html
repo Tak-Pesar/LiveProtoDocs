@@ -5,10 +5,239 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>My Docsify Docs</title>
 		<!-- Docsify CSS Theme -->
+		<style>
+			@media(prefers-color-scheme: light){
+				:root {
+					/* --warning-text-color */
+					/* --warning-bg-color */
+					/* --note-text-color */
+					/* --url-text-color */
+					/* --url-bg-color */
+					/* --quote-solid-color */
+					/* --quote-text-color */
+					/* --quote-bg-color */
+					/* --pre-bg-color */
+					/* --code-bg-color */
+					/* --search-border-color: #ffffff; */
+					/* --title-color: #0ff2d4; */
+					/* --alert-note-color */
+					/* --alert-tip-color */
+					/* --alert-warning-color */
+					/* --alert-attention-color */
+					--note-bg-color: #ecf9f2;
+					--bold-color: #f50fe2;
+					--background-color: #ffffff;
+					--secondary-background-color: #f8f8f8;
+					--text-color: #34495e;
+					--color: #42b983;
+					--hint-color: #525252;
+					--theme-color: #a26bdb;
+				}
+			}
+			@media(prefers-color-scheme: dark){
+				:root {
+					--note-bg-color: #688562;
+					--bold-color: #f53679;
+					--background-color: #0e0e0e;
+					--secondary-background-color: #282828;
+					--section-separator-color: #0ff2d4;
+					--kbd-border-color: #c8c8c8;
+					--text-color: #c8c8c8;
+					--color: #ea6f5a;
+					--hint-color: #808080;
+					--theme-color: #45b05e;
+				}
+			}
+		</style>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
+		<style>
+			.sidebar , body {
+				background-color: var(--background-color);
+				color: var(--text-color);
+			}
+			.sidebar {
+				border-right: 1px solid var(--section-separator-color);
+			}
+			kbd {
+				border: 1px solid var(--kbd-border-color,var(--section-separator-color));
+			}
+			.progress {
+				background-color: var(--color);
+			}
+			/* test search on the web !! */
+			/*
+			.search .search-keyword , .search a:hover {
+				color: var(--color);
+				color: var(--theme-color,var(--color));
+			}
+			*/
+			input[type=search] {
+				background: var(--background-color);
+				border-color: var(--search-border-color,var(--background-color)) !important;
+				color: var(--text-color);
+			}
+			.app-nav a.active , .app-nav a: hover {
+				color: var(--color);
+				color: var(--theme-color,var(--color));
+			}
+			.app-nav a.active {
+				border-bottom: 2px solid var(--color);
+				border-bottom: 2px solid var(--theme-color,var(--color));
+			}
+			.github-corner svg {
+				color: var(--background-color);
+				fill: var(--color);
+				fill: var(--theme-color,var(--color));
+			}
+			.sidebar-toggle span {
+				background-color: var(--color);
+				background-color: var(--theme-color,var(--color));
+			}
+			.anchor span {
+				color: var(--title-color,var(--text-color));
+			}
+			.sidebar .search {
+				border-bottom: 1px solid var(--section-separator-color);
+			}
+			.sidebar-toggle span {
+				background-color: var(--color);
+				background-color: var(--theme-color,var(--color));
+			}
+			.sidebar li {
+				margin: 6px 15px 6px 0;
+			}
+			.sidebar ul li a {
+				color: var(--hint-color,var(--text-color,var(--color)));
+			}
+			.sidebar ul li.active>a {
+				border-top: 1px solid;
+				border-right: 1px solid;
+				color: var(--color);
+				color: var(--theme-color,var(--color));
+			}
+			.markdown-section .alert.note {
+				border: 1px solid var(--alert-note-color,#17a2b8) !important;
+				border-radius: 5px;
+			}
+			.markdown-section .alert.tip {
+				border: 1px solid var(--alert-tip-color,#28a745) !important;
+				border-radius: 5px;
+			}
+			.markdown-section .alert.warning {
+				border: 1px solid var(--alert-warning-color,#f0ad4e) !important;
+				border-radius: 5px;
+			}
+			.markdown-section .alert.attention {
+				border: 1px solid var(--alert-attention-color,#dc3545) !important;
+				border-radius: 5px;
+			}
+			.markdown-section p.tip {
+				background-color: var(--warning-bg-color,var(--secondary-background-color));
+				color: var(--warning-text-color,var(--text-color));
+			}
+			/*
+			.markdown-section p.tip: before {
+				color: var(--background-color);
+			}
+			.markdown-section p.tip em {
+				color: var(--text-color);
+			}
+			*/
+			.markdown-section p.warn {
+				background: var(--note-bg-color,var(--secondary-background-color));
+				color: var(--note-text-color,var(--text-color));
+			}
+			.sidebar-toggle {
+				width: 300px;
+			}
+			body.close .sidebar-toggle {
+				background-color: var(--background-color);
+			}
+			/* what's them ? */
+			/*
+			section.cover.has-mask .mask {
+				background-color: var(--background-color);
+			}
+			section.cover .cover-main>p: last-child a {
+				border: 1px solid var(--color);
+				border-color: var(--theme-color,var(--color));
+				color: var(--color);
+				color: var(--theme-color,var(--color));
+			}
+			section.cover .cover-main>p: last-child a: last-child {
+				background-color: var(--color);
+				background-color: var(--theme-color,var(--color));
+				color: var(--background-color);
+			}
+			section.cover blockquote>p>a {
+				border-bottom: 2px solid var(--color);
+				border-bottom: 2px solid var(--theme-color,var(--color));
+			}
+			section.cover blockquote>p>a: hover {
+				color: var(--color);
+				color: var(--theme-color,var(--color));
+			}
+			*/
+			.markdown-section hr {
+				border-bottom: 1px solid var(--section-separator-color,#eee);
+			}
+			.markdown-section h1 , .markdown-section h2 , .markdown-section h3 , .markdown-section h4 , .markdown-section strong {
+				color: var(--bold-color);
+			}
+			.markdown-section a {
+				background-color: var(--url-bg-color);
+				color: var(--url-text-color,var(--color));
+			}
+			.markdown-section blockquote {
+				background-color: var(--quote-bg-color,var(--background-color));
+				border-left: 4px solid var(--quote-solid-color,var(--color));
+				color: var(--quote-text-color,var(--text-color));
+			}
+			.markdown-section code {
+				background-color: var(--code-bg-color,var(--secondary-background-color));
+				color: var(--hint-color);
+				border-radius: 10px;
+			}
+			.markdown-section pre {
+				background-color: var(--pre-bg-color,var(--secondary-background-color));
+				border-radius: 2px;
+			}
+			.markdown-section pre>code {
+				background-color: transparent;
+				border-radius: 2px;
+				color: var(--hint-color);
+			}
+			/*
+			pre: after {
+				color: #0ff2d4 !important;
+			}
+			*/
+			.tip pre, .warning pre, .danger pre {
+				background: var(--pre-bg-color,var(--background-color)) !important;
+				padding: 2px 5px;
+				border-radius: 10px;
+			}
+			.tip code , .warning code , .danger code {
+				background: var(--code-bg-color,var(--background-color)) !important;
+				color: var(--hint-color) !important;
+				padding: 2px 5px;
+				border-radius: 10px;
+			}
+			.token.string , .token.attr-value , .token.control , .token.directive , .token.unit {
+				color: var(--theme-color,var(--color));
+			}
+		</style>
 		<!-- Font Awesome Icons for UI Enhancements -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	</head>
+	<style>
+		.rtl-text {
+			direction: rtl;
+			text-align: right;
+			display: block;
+			font-family: 'IRANSans', 'Tahoma', Arial, sans-serif;
+		}
+	</style>
 	<script>
 		if(location.pathname === '/' || location.pathname === '/index.html'){
 			location.href += '#/en/';
@@ -49,7 +278,7 @@
 				executeScript: true,
 				loadSidebar: true,
 				loadNavbar: true,
-				autoHeader: true,
+				autoHeader: false,
 				nativeEmoji: true,
 				notFoundPage: true,
 				search: {
@@ -67,18 +296,59 @@
 					pathNamespaces: ['/fa','/en'],
 				},
 				skipLink: {
-						'/fa/': 'به محتوای اصلی بروید',
-						'/en/': 'Skip to main content',
-					},
+					'/fa/': 'به محتوای اصلی بروید',
+					'/en/': 'Skip to main content',
+				},
+				/*
+				markdown: {
+					renderer: {
+						heading(text,level){
+							console.log(text);
+							return `<h${level} style="font-weight: bold; direction: rtl; text-align: right;">${text}</h${level}>`;
+							return this.origin.code.apply(this, arguments);
+						}
+					}
+				},
+				*/
 				plugins: [
 					function(hook,vm){
+						/*
+						hook.beforeEach(function(markdown){
+							const content = markdown.split('\n').map((line) => {
+								if(/[\u0600-\u06FF]/.test(line)){
+									if(line.startsWith('#')){
+									line = marked(line).replace(/<\/?span[^>]*>/g, '');
+									console.log(line);
+									}
+									return `<span class="rtl-text">${line}</span>`;
+								}
+								return line;
+							}).join('\n');
+							return content;
+						});
+						*/
 						var footer = [
-						'<footer style="text-align: center;margin-top: 50px;">',
-						'<span> Made by <a href="https://AsirRam.t.me" target="_blank">Tak-Pesar</a>	&copy; 2025</span>',
-						'</footer>'
+							'<footer style="text-align: center;margin-top: 50px;">',
+							'<span> Made by <a href="https://AsirRam.t.me" target="_blank">Tak-Pesar</a>	&copy; 2025</span>',
+							'</footer>'
 						].join('');
+						hook.doneEach(function(){
+							// const sidebarActive = document.querySelector('.sidebar ul li.active > a');
+							// const c = window.getComputedStyle(sidebar);
+							// console.log(sidebar.style.left);
+							// set sidebar
+							// test all tags in elements
+							const elements = document.querySelectorAll('h1 , h2 , h3 , h4 , h5 , h6 , p , ul , ol , li , blockquote , a , table , thead , tbody , tr , th , td , em , strong , del , div , span');
+							elements.forEach((el) => {
+								if(/[\u0600-\u06FF]/.test(el.textContent)){
+									el.style.direction = 'rtl';
+								} else {
+									el.style.direction = 'ltr';
+								}
+							});
+						});
 						hook.afterEach(function(html){
-						return html + footer;
+							return html + footer;
 						});
 						hook.doneEach(function(){
 							if(document.location.hash !== '#/') document.title += ' | LiveProto Documents';
