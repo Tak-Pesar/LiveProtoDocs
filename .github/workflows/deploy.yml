@@ -1,4 +1,4 @@
-name: Build and Deploy Docsify v5+
+name: Deploy Docsify v5+ (Pre-Built)
 
 on:
   push:
@@ -6,34 +6,16 @@ on:
       - main  # Change this if your main branch is different
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Clone Docsify v5+ from GitHub
-        run: git clone -b develop https://github.com/docsifyjs/docsify.git docsify-source
-
-      - name: Install Docsify Dependencies
-        run: |
-          cd docsify-source
-          npm install
-          npm run build
-          cd ..
-
-      - name: Copy Built Files
-        run: cp -r docsify-source/dist ./docsify  # Ensure the built files are copied
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docsify  # Change this if your docs directory is different
-          branch: gh-pages  # The branch where GitHub Pages is hosted
+          publish_dir: ./docsify  # Folder where pre-built Docsify files are stored
+          branch: gh-pages  # GitHub Pages branch
