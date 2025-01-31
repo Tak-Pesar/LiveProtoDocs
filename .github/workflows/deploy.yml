@@ -19,21 +19,21 @@ jobs:
           node-version: '18'
 
       - name: Clone Docsify v5+ from GitHub
-        run: |
-          git clone -b develop https://github.com/docsifyjs/docsify.git docsify-source
-          cp -r docsify-source/dist ./docsify
+        run: git clone -b develop https://github.com/docsifyjs/docsify.git docsify-source
 
-      - name: Install Dependencies
+      - name: Install Docsify Dependencies
         run: |
           cd docsify-source
           npm install
           npm run build
           cd ..
-          cp -r docsify-source/dist ./docsify
+
+      - name: Copy Built Files
+        run: cp -r docsify-source/dist ./docsify  # Ensure the built files are copied
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docsify
-          branch: gh-pages
+          publish_dir: ./docsify  # Change this if your docs directory is different
+          branch: gh-pages  # The branch where GitHub Pages is hosted
