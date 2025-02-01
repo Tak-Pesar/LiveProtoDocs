@@ -1,5 +1,8 @@
 name: Deploy Docsify Documentation
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
